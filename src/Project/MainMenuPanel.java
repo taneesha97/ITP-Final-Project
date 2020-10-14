@@ -33,7 +33,7 @@ public class MainMenuPanel extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         dashboard = new javax.swing.JLabel();
         HRMannagement = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        BarBilling = new javax.swing.JLabel();
         ReceptionManagement = new javax.swing.JLabel();
         KitchenManagement = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -41,6 +41,7 @@ public class MainMenuPanel extends javax.swing.JPanel {
         DriverHomePage = new javax.swing.JLabel();
         InventoryBtn = new javax.swing.JLabel();
         borderline = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(1360, 590));
         setMinimumSize(new java.awt.Dimension(1360, 590));
@@ -60,13 +61,13 @@ public class MainMenuPanel extends javax.swing.JPanel {
         });
         jPanel1.add(HRMannagement, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 160, -1, 163));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Button-3.png"))); // NOI18N
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        BarBilling.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Button-3.png"))); // NOI18N
+        BarBilling.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2barMouceClicked(evt);
+                BarBillingbarMouceClicked(evt);
             }
         });
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(637, 369, -1, -1));
+        jPanel1.add(BarBilling, new org.netbeans.lib.awtextra.AbsoluteConstraints(637, 369, -1, -1));
 
         ReceptionManagement.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Button-7.png"))); // NOI18N
         ReceptionManagement.setPreferredSize(new java.awt.Dimension(100, 100));
@@ -120,6 +121,16 @@ public class MainMenuPanel extends javax.swing.JPanel {
         borderline.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Rectangle 2.png"))); // NOI18N
         jPanel1.add(borderline, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/KitchenButtons/Internal_UI/logout_normal.png"))); // NOI18N
+        jButton1.setRolloverEnabled(true);
+        jButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/KitchenButtons/Internal_UI/logout_selected.png"))); // NOI18N
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 60, 180, 50));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -137,13 +148,11 @@ public class MainMenuPanel extends javax.swing.JPanel {
         changeFunction("HR");
     }//GEN-LAST:event_HRMannagementMouseClicked
 
-    private void jLabel2barMouceClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2barMouceClicked
+    private void BarBillingbarMouceClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BarBillingbarMouceClicked
         // TODO add your handling code here:
-        Billing b1 = new Billing();
-        this.setVisible(false);
-        b1.setVisible(true);
+        changeFunction("Bar");
 
-    }//GEN-LAST:event_jLabel2barMouceClicked
+    }//GEN-LAST:event_BarBillingbarMouceClicked
 
     private void ReceptionManagementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReceptionManagementMouseClicked
         //Navigate to the Reception Management.
@@ -189,12 +198,17 @@ public class MainMenuPanel extends javax.swing.JPanel {
 
     private void InventoryBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_InventoryBtnMouseClicked
         IDashBoard b1 = new IDashBoard();
-        this.setVisible(false);
+        this.setVisible(false); 
         b1.setVisible(true);
     }//GEN-LAST:event_InventoryBtnMouseClicked
 
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        changeFunction("Login");
+    }//GEN-LAST:event_jButton1MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel BarBilling;
     private javax.swing.JLabel DriverHomePage;
     private javax.swing.JLabel HRMannagement;
     private javax.swing.JLabel InventoryBtn;
@@ -203,7 +217,7 @@ public class MainMenuPanel extends javax.swing.JPanel {
     private javax.swing.JLabel TransactionManagement;
     private javax.swing.JLabel borderline;
     private javax.swing.JLabel dashboard;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

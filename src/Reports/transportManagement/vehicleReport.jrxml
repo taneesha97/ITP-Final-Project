@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.13.0.final using JasperReports Library version 6.13.0-46ada4d1be8f3c5985fd0b6146f3ed44caed6f05  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="vehicleReport" pageWidth="842" pageHeight="1191" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="000c803c-cc31-43db-b0e1-be5f9cc2b3f4">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (4)"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT *
+FROM itpfinaldb.vehicle]]>
+	</queryString>
+	<field name="TMS_ID" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="TMS_ID"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="vehicle"/>
+	</field>
+	<field name="TMS_vname" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="TMS_vname"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="vehicle"/>
+	</field>
+	<field name="TMS_ChassisNo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="TMS_ChassisNo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="vehicle"/>
+	</field>
+	<field name="TMS_Features" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="TMS_Features"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="vehicle"/>
+	</field>
+	<field name="TMS_Condition" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="TMS_Condition"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="vehicle"/>
+	</field>
+	<field name="TMS_MRecord" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="TMS_MRecord"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="vehicle"/>
+	</field>
+	<field name="TMS_Documents" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.label" value="TMS_Documents"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="vehicle"/>
+	</field>
+	<field name="TMS_VImg" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.label" value="TMS_VImg"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="vehicle"/>
+	</field>
+	<field name="Vehiclecol" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Vehiclecol"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="vehicle"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="310" y="30" width="220" height="44" uuid="d7b043fe-b440-4638-adf5-88d31bdf3128"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[Vehicle Details Report]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="62" splitType="Stretch">
+			<frame>
+				<reportElement x="20" y="10" width="771" height="40" uuid="8fb3188d-1d88-400e-b184-7924e5a577cd"/>
+				<staticText>
+					<reportElement x="100" y="6" width="100" height="30" uuid="864c51fa-3906-4525-9377-9ba9a735863d">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2712c6f5-f5c6-47f4-8c56-c49baa3b5920"/>
+					</reportElement>
+					<text><![CDATA[TMS_vname]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="210" y="6" width="100" height="30" uuid="acb21831-04eb-4f44-821e-6316a3f44632">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="671a33a8-ddf3-493d-951d-00db99c00983"/>
+					</reportElement>
+					<text><![CDATA[TMS_ChassisNo]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="6" width="69" height="30" uuid="d4827f82-15d4-41c2-9a65-51d5490d6e20">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a76ff058-6ae7-4e87-a0c8-78593f9d3164"/>
+					</reportElement>
+					<text><![CDATA[TMS_ID]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="320" y="6" width="100" height="30" uuid="a196dd90-524e-4485-8365-9a6a87447e29">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7d62364f-63bd-47bd-a9a6-93729a830ad8"/>
+					</reportElement>
+					<text><![CDATA[TMS_Features]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="430" y="5" width="100" height="30" uuid="83eb3df8-5d6b-4d38-a3ed-45111396f8c6">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1fb7f3d9-7b6f-4e2d-ab2c-18a002206857"/>
+					</reportElement>
+					<text><![CDATA[TMS_Condition]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="540" y="6" width="100" height="30" uuid="935b3e07-aa3d-4dfd-9885-a92cf0b7223e">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4acb7fb6-ca12-4222-b7bc-17db22eb7988"/>
+					</reportElement>
+					<text><![CDATA[TMS_MRecord]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="650" y="6" width="100" height="30" uuid="57f98ebb-1d13-44f5-99dc-f3d13e91716b">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ffff7c49-bb66-45df-b1ee-abd9614d0bbe"/>
+					</reportElement>
+					<text><![CDATA[Vehiclecol]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="59" splitType="Stretch">
+			<textField>
+				<reportElement x="120" y="10" width="100" height="30" uuid="9564a48e-af30-4639-99c1-1589f254d1e1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2712c6f5-f5c6-47f4-8c56-c49baa3b5920"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{TMS_vname}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="229" y="10" width="100" height="30" uuid="ca4090a6-e9f7-46f0-bd32-88d62339ea21">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="671a33a8-ddf3-493d-951d-00db99c00983"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{TMS_ChassisNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="40" y="10" width="69" height="30" uuid="6d7e6791-0f74-4bbc-a11f-5f06f663537e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a76ff058-6ae7-4e87-a0c8-78593f9d3164"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{TMS_ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="339" y="10" width="100" height="30" uuid="85cab8bf-39db-4385-a757-ecce001d8511">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7d62364f-63bd-47bd-a9a6-93729a830ad8"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{TMS_Features}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="10" width="100" height="30" uuid="cefc1ba1-a4d7-4877-afbc-539ceee63735">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1fb7f3d9-7b6f-4e2d-ab2c-18a002206857"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{TMS_Condition}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="560" y="10" width="100" height="30" uuid="ffb48d41-d220-4c39-a74b-d7f30de650bc">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4acb7fb6-ca12-4222-b7bc-17db22eb7988"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{TMS_MRecord}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="670" y="10" width="100" height="30" uuid="519cb4c1-f9be-4134-8d9d-89ac150dc5d8">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ffff7c49-bb66-45df-b1ee-abd9614d0bbe"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Vehiclecol}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

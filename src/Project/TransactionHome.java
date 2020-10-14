@@ -14,6 +14,8 @@ import java.awt.event.MouseEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.RowFilter;
@@ -32,6 +34,7 @@ public class TransactionHome extends javax.swing.JPanel {
     private double pBalance;
     private double paybleAmount;
     private int TpaymentID;
+    private int CID;
     Date d1 = new Date();
 
     /**
@@ -50,6 +53,7 @@ public class TransactionHome extends javax.swing.JPanel {
         Cname.setEditable(false);
         Pname.setEditable(false);
         transactionID.setVisible(false);
+        SupplierID.setVisible(false);
     }
     
    
@@ -161,7 +165,7 @@ public class TransactionHome extends javax.swing.JPanel {
         jLabel14 = new javax.swing.JLabel();
         SupplierAddress = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        SupplierTotalAmount = new javax.swing.JLabel();
+        STotalAmount = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
         jButton6 = new javax.swing.JButton();
@@ -171,6 +175,7 @@ public class TransactionHome extends javax.swing.JPanel {
         supplierTransactionTable = new javax.swing.JTable();
         supplierTransactionButton = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
+        SupplierID = new javax.swing.JTextField();
         Monthly_Report = new javax.swing.JPanel();
         textField16 = new java.awt.TextField();
         jButton8 = new javax.swing.JButton();
@@ -494,7 +499,7 @@ public class TransactionHome extends javax.swing.JPanel {
                                 .addGroup(Customer_Transaction_HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(Cname, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
                                     .addComponent(Pname))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 755, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(296, 296, 296))
                     .addGroup(Customer_Transaction_HomeLayout.createSequentialGroup()
@@ -617,14 +622,14 @@ public class TransactionHome extends javax.swing.JPanel {
                                                 .addComponent(jLabel28))
                                             .addGroup(Customer_Transaction_HomeLayout.createSequentialGroup()
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(BDiscount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                .addComponent(BDiscount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel30)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel32))
                                     .addGroup(Customer_Transaction_HomeLayout.createSequentialGroup()
-                                        .addComponent(NoOfDays, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel30)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel32)
+                                        .addComponent(NoOfDays, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                 .addGroup(Customer_Transaction_HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(Customer_Transaction_HomeLayout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -941,7 +946,7 @@ public class TransactionHome extends javax.swing.JPanel {
                             .addGroup(Add_Payment_DetailsLayout.createSequentialGroup()
                                 .addGap(163, 163, 163)
                                 .addComponent(CashButton1)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
                         .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(124, 124, 124)
                         .addGroup(Add_Payment_DetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1172,7 +1177,7 @@ public class TransactionHome extends javax.swing.JPanel {
         jLabel16.setFont(new java.awt.Font("Nirmala UI", 1, 18)); // NOI18N
         jLabel16.setText("Amount");
 
-        SupplierTotalAmount.setFont(new java.awt.Font("Nirmala UI", 0, 16)); // NOI18N
+        STotalAmount.setFont(new java.awt.Font("Nirmala UI", 0, 16)); // NOI18N
 
         jSeparator2.setBackground(new java.awt.Color(0, 0, 255));
         jSeparator2.setForeground(new java.awt.Color(0, 0, 255));
@@ -1210,6 +1215,11 @@ public class TransactionHome extends javax.swing.JPanel {
 
         supplierTransactionButton.setFont(new java.awt.Font("Nirmala UI", 1, 16)); // NOI18N
         supplierTransactionButton.setText("Add");
+        supplierTransactionButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                supplierTransactionButtonMouseClicked(evt);
+            }
+        });
         supplierTransactionButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 supplierTransactionButtonActionPerformed(evt);
@@ -1218,6 +1228,8 @@ public class TransactionHome extends javax.swing.JPanel {
 
         jLabel6.setFont(new java.awt.Font("Nirmala UI", 1, 18)); // NOI18N
         jLabel6.setText("Add Supplier Details Into Transaction Table");
+
+        SupplierID.setEditable(false);
 
         javax.swing.GroupLayout Supplier_TransactionLayout = new javax.swing.GroupLayout(Supplier_Transaction);
         Supplier_Transaction.setLayout(Supplier_TransactionLayout);
@@ -1236,24 +1248,28 @@ public class TransactionHome extends javax.swing.JPanel {
             .addGroup(Supplier_TransactionLayout.createSequentialGroup()
                 .addGroup(Supplier_TransactionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Supplier_TransactionLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(Supplier_TransactionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel16)
-                            .addComponent(jLabel5))
-                        .addGap(36, 36, 36)
                         .addGroup(Supplier_TransactionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(supplierName, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(SupplierTotalAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(supplierEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(SupplierAddress, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(Supplier_TransactionLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(Supplier_TransactionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel16)
+                                    .addComponent(jLabel5))
+                                .addGap(36, 36, 36)
+                                .addGroup(Supplier_TransactionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(Supplier_TransactionLayout.createSequentialGroup()
+                                        .addComponent(supplierName, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(supplierEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(SupplierAddress, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(STotalAmount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(27, 27, 27))
                     .addGroup(Supplier_TransactionLayout.createSequentialGroup()
-                        .addGap(89, 89, 89)
+                        .addGap(98, 98, 98)
                         .addComponent(supplierTransactionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(27, 27, 27)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(Supplier_TransactionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Supplier_TransactionLayout.createSequentialGroup()
@@ -1270,7 +1286,10 @@ public class TransactionHome extends javax.swing.JPanel {
                         .addComponent(Supplier_Tran, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(Supplier_TransactionLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1094, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1094, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(Supplier_TransactionLayout.createSequentialGroup()
+                        .addGap(460, 460, 460)
+                        .addComponent(SupplierID, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         Supplier_TransactionLayout.setVerticalGroup(
@@ -1284,7 +1303,9 @@ public class TransactionHome extends javax.swing.JPanel {
                     .addComponent(jButton5))
                 .addGap(31, 31, 31)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(SupplierID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(Supplier_TransactionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Supplier_TransactionLayout.createSequentialGroup()
@@ -1294,7 +1315,7 @@ public class TransactionHome extends javax.swing.JPanel {
                         .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(Supplier_TransactionLayout.createSequentialGroup()
                         .addGap(11, 11, 11)
-                        .addGroup(Supplier_TransactionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(Supplier_TransactionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(Supplier_TransactionLayout.createSequentialGroup()
                                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1312,10 +1333,10 @@ public class TransactionHome extends javax.swing.JPanel {
                                     .addComponent(supplierEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(Supplier_TransactionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(SupplierTotalAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(STotalAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(24, 24, 24)
-                                .addComponent(supplierTransactionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(18, 18, 18)
+                                .addComponent(supplierTransactionButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addGap(199, 199, 199))
         );
 
@@ -1437,7 +1458,7 @@ public class TransactionHome extends javax.swing.JPanel {
                         .addComponent(jScrollPane5)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Monthly_ReportLayout.createSequentialGroup()
-                .addGap(0, 819, Short.MAX_VALUE)
+                .addGap(0, 816, Short.MAX_VALUE)
                 .addComponent(Mothly_Report, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(405, 405, 405))
             .addGroup(Monthly_ReportLayout.createSequentialGroup()
@@ -1524,6 +1545,15 @@ public class TransactionHome extends javax.swing.JPanel {
          SuplierDetailTable.setModel(DbUtils.resultSetToTableModel(rs));
     }
     
+    private void fillCompanyTransactiontable() {
+         //creating a Database Helper object
+         DBHelper dbhelper = new DBHelper();
+         //calling method
+         ResultSet rs = dbhelper.SelectcompanyTransactionDetails();
+         //set the table view
+         supplierTransactionTable.setModel(DbUtils.resultSetToTableModel(rs));
+    }
+    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -1547,8 +1577,8 @@ public class TransactionHome extends javax.swing.JPanel {
         DefaultTableModel tableModel = (DefaultTableModel) CustomerTable.getModel();
 
         String cName = tableModel.getValueAt(CustomerTable.getSelectedRow(), 1).toString();
-        int CID = (int) tableModel.getValueAt(CustomerTable.getSelectedRow(), 0);
-
+        CID = (int) tableModel.getValueAt(CustomerTable.getSelectedRow(), 0);
+        
         DBHelper dbhelper = new DBHelper();
         //retrieve kitchen requested food item  price
         ResultSet rs = dbhelper.SelectKitchenRequestedFoodItem(cName);
@@ -1632,13 +1662,15 @@ public class TransactionHome extends javax.swing.JPanel {
             rs4.next();
 
             String BarPrice = rs4.getString("totalPrice");
-
             Bprice.setText(BarPrice);
+            
+            double barPrice = Double.parseDouble(BarPrice);
             rs6.next();
 
             String barDiscount = rs6.getString("Discount");
-
             BDiscount.setText(barDiscount);
+            
+            double BarDiscount = Double.parseDouble(barDiscount);
 
             rs7.next();
 
@@ -1655,7 +1687,7 @@ public class TransactionHome extends javax.swing.JPanel {
             String fTotal = String.valueOf(Ftotal);
             FinalTotal.setText(fTotal);
             finalTotal = Ftotal;
-            System.out.println(finalTotal);
+            //System.out.println(finalTotal);
 
             String PaymentDEtailtotal = String.valueOf(finalTotal);
             Amount.setText(PaymentDEtailtotal);
@@ -1670,9 +1702,14 @@ public class TransactionHome extends javax.swing.JPanel {
             rs10.next();
             String add = rs10.getString("Address");
             Address.setText(add);
+            
+            //insert query for payment details 
+            String sql = "INSERT INTO customerpayment(CID,cName,phoneNo,address,pName,pPrice,noOfDays,pDiscount,packageTotal,kPrice,iPrice,kANDiTotalPrice,bPrice,bDiscount,bTotal,subTotal,FinalTotal) "+
+                    "VALUES('" +CID +  "','" + CustomerName+ "','" + PhoneNo + "','" + add + "','" + PackageName + "','" + pPrice + "','" + days+ "','" +pDiscount + "','" + Price+ "','" + Kprice+ "','" + Iprice+ "','" + RequestedTotal+ "','" + barPrice+ "','" + BarDiscount+ "','" + BPrice+ "','" + subTotal+ "','" + Ftotal+ "')";
+            DBHelper.InsertCustomerPaymentDetail(sql);
 
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
 
         fillCustomertable();
@@ -1855,7 +1892,7 @@ public class TransactionHome extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(this, "Please enter Payble Amount ");
                 }
                 //insert query for payment details
-                String sql = "INSERT INTO customertransaction(Discount, TotalAmount, Payble_Amount, Balance ) values ('" +packageDiscount +  "','" + finalTotal+ "','" + paybleAmount + "','" + pBalance + "')";
+                String sql = "INSERT INTO customertransaction(Discount, TotalAmount, Payble_Amount, Balance,CID ) values ('" +packageDiscount +  "','" + finalTotal+ "','" + paybleAmount + "','" + pBalance + "','" + CID + "')";
                 DBHelper.InsertPaymentDetail(sql);
                 JOptionPane.showMessageDialog(this, "....Successfully inserted....");
             }else if(CardButton2.isSelected()){
@@ -1869,7 +1906,7 @@ public class TransactionHome extends javax.swing.JPanel {
                 String crdNo = CardNo2.getText().toString().trim();
                 //System.out.println(crdName);
                 //insert query for payment details
-                String sql = "INSERT INTO customertransaction(Discount, TotalAmount,CardNo,CVVNo,CardName,Year,Month) values ('" +packageDiscount +  "','" + finalTotal+ "','" + crdNo + "','" + cvvNo.getText() + "','" + crdName + "','" + year.getText() + "','" + month.getText() + "')";
+                String sql = "INSERT INTO customertransaction(Discount, TotalAmount,CardNo,CVVNo,CardName,Year,Month,CID) values ('" +packageDiscount +  "','" + finalTotal+ "','" + crdNo + "','" + cvvNo.getText() + "','" + crdName + "','" + year.getText() + "','" + month.getText() + "','" + CID + "')";
                 DBHelper.InsertPaymentDetail(sql);
                 JOptionPane.showMessageDialog(this, "....Successfully inserted....");
 
@@ -2052,7 +2089,7 @@ public class TransactionHome extends javax.swing.JPanel {
         // TODO add your handling code here:
         DefaultTableModel tableModel = (DefaultTableModel) SuplierDetailTable.getModel();
         
-        //int CID = (int) tableModel.getValueAt(SuplierDetailTable.getSelectedRow(), 0);
+        String SID =  tableModel.getValueAt(SuplierDetailTable.getSelectedRow(), 0).toString();
         String SupplierName = tableModel.getValueAt(SuplierDetailTable.getSelectedRow(), 1).toString();
         String supplierAddress = tableModel.getValueAt(SuplierDetailTable.getSelectedRow(), 2).toString();
         String SupplierEmail = tableModel.getValueAt(SuplierDetailTable.getSelectedRow(), 5).toString();
@@ -2060,6 +2097,19 @@ public class TransactionHome extends javax.swing.JPanel {
         supplierName.setText(SupplierName);
         SupplierAddress.setText(supplierAddress);
         supplierEmail.setText(SupplierEmail);
+        SupplierID.setText(SID);
+        DBHelper dbhelper = new DBHelper();
+        ResultSet rs = dbhelper.calculateTotalAmount(SID);
+        
+        try {
+            rs.next();
+            String SupplierTotalAmount = rs.getString("TotalAmount");
+            STotalAmount.setText(SupplierTotalAmount);
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
         
     }//GEN-LAST:event_SuplierDetailTableMouseClicked
 
@@ -2071,6 +2121,21 @@ public class TransactionHome extends javax.swing.JPanel {
         SuplierDetailTable.setRowSorter(tr);
         tr.setRowFilter(RowFilter.regexFilter(search));
     }//GEN-LAST:event_searchSupplierKeyReleased
+
+    private void supplierTransactionButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_supplierTransactionButtonMouseClicked
+        // TODO add your handling code here:
+        try{
+            //insert query for company transaction details
+            String sql = "INSERT INTO companytransaction(TotalAmount, sName, Adreess, Email, SupID ) values ('" +STotalAmount.getText()+  "','" + supplierName.getText()+ "','" + SupplierAddress.getText() + "','" + supplierEmail.getText() + "','" + SupplierID.getText() + "')";
+            DBHelper.InsertPaymentDetail(sql);
+            JOptionPane.showMessageDialog(this, "....Successfully inserted....");
+            
+        }catch(Exception e){
+            e.printStackTrace();
+
+        }
+        fillCompanyTransactiontable();
+    }//GEN-LAST:event_supplierTransactionButtonMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -2109,10 +2174,11 @@ public class TransactionHome extends javax.swing.JPanel {
     private java.awt.TextField Pprice;
     private java.awt.TextField Rprice;
     private java.awt.TextField STotal;
+    private javax.swing.JLabel STotalAmount;
     private javax.swing.JPanel Side_panel;
     private javax.swing.JTable SuplierDetailTable;
     private javax.swing.JLabel SupplierAddress;
-    private javax.swing.JLabel SupplierTotalAmount;
+    private javax.swing.JTextField SupplierID;
     private javax.swing.JLabel Supplier_Tran;
     private javax.swing.JPanel Supplier_Transaction;
     private javax.swing.JTextField TotalPackagePrice;

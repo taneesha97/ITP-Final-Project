@@ -24,6 +24,7 @@ import javax.swing.table.TableRowSorter;
 import net.proteanit.sql.DbUtils;
 import java.sql.SQLException;
 import java.util.regex.Pattern;
+import net.sf.jasperreports.engine.JRException;
 /**
  *
  * @author Chamindu
@@ -111,6 +112,7 @@ public class HRHomePanel extends javax.swing.JPanel {
         lb_email = new javax.swing.JLabel();
         lb_nic = new javax.swing.JLabel();
         lb_password = new javax.swing.JLabel();
+        EmployeeReport = new javax.swing.JButton();
         services_panel = new javax.swing.JPanel();
         jScrollPane11 = new javax.swing.JScrollPane();
         service_table = new javax.swing.JTable();
@@ -130,6 +132,11 @@ public class HRHomePanel extends javax.swing.JPanel {
         jLabel25 = new javax.swing.JLabel();
         serviceSearchBT = new javax.swing.JButton();
         serviceSearchInput = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
+        ServiceDateChooser = new com.toedter.calendar.JDateChooser();
+        jLabel28 = new javax.swing.JLabel();
+        ServiceReportBT = new javax.swing.JButton();
+        SdateL = new javax.swing.JLabel();
         salary_panel = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -156,6 +163,10 @@ public class HRHomePanel extends javax.swing.JPanel {
         jLabel26 = new javax.swing.JLabel();
         salarySearchInput = new javax.swing.JTextField();
         salarySearchBT = new javax.swing.JButton();
+        jLabel29 = new javax.swing.JLabel();
+        reportMonth = new com.toedter.calendar.JMonthChooser();
+        reportYear = new com.toedter.calendar.JYearChooser();
+        salaryReport = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(1360, 590));
         setMinimumSize(new java.awt.Dimension(1360, 590));
@@ -166,18 +177,18 @@ public class HRHomePanel extends javax.swing.JPanel {
 
         jPanel3.setBackground(new java.awt.Color(51, 51, 51));
 
-        employeePanel.setBackground(new java.awt.Color(4, 87, 152));
+        employeePanel.setBackground(new java.awt.Color(235, 190, 42));
         employeePanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 employeePanelMouseClicked(evt);
             }
         });
 
-        employeeLabel.setBackground(new java.awt.Color(255, 255, 255));
-        employeeLabel.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        employeeLabel.setForeground(new java.awt.Color(224, 224, 224));
+        employeeLabel.setBackground(new java.awt.Color(235, 190, 42));
+        employeeLabel.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
         employeeLabel.setText("EMPLOYEE");
         employeeLabel.setToolTipText("");
+        employeeLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         employeeLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 employeeLabelMouseClicked(evt);
@@ -189,27 +200,27 @@ public class HRHomePanel extends javax.swing.JPanel {
         employeePanelLayout.setHorizontalGroup(
             employeePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(employeePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(employeeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(8, 8, 8)
+                .addComponent(employeeLabel)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         employeePanelLayout.setVerticalGroup(
             employeePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, employeePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(employeeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(employeeLabel))
         );
 
-        ServicePanel.setBackground(new java.awt.Color(88, 193, 241));
+        ServicePanel.setBackground(new java.awt.Color(0, 0, 0));
         ServicePanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ServicePanelMouseClicked(evt);
             }
         });
 
-        ServiceLabel.setBackground(new java.awt.Color(255, 255, 255));
-        ServiceLabel.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        ServiceLabel.setBackground(new java.awt.Color(4, 87, 152));
+        ServiceLabel.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
+        ServiceLabel.setForeground(new java.awt.Color(255, 255, 255));
         ServiceLabel.setText("SERVICERS");
         ServiceLabel.setToolTipText("");
         ServiceLabel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -222,27 +233,25 @@ public class HRHomePanel extends javax.swing.JPanel {
         ServicePanel.setLayout(ServicePanelLayout);
         ServicePanelLayout.setHorizontalGroup(
             ServicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ServicePanelLayout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ServicePanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(ServiceLabel)
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addContainerGap())
         );
         ServicePanelLayout.setVerticalGroup(
             ServicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ServicePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(ServiceLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(ServiceLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
         );
 
-        SalaryPanel1.setBackground(new java.awt.Color(88, 193, 241));
+        SalaryPanel1.setBackground(new java.awt.Color(0, 0, 0));
         SalaryPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 SalaryPanel1MouseClicked(evt);
             }
         });
 
-        SalaryLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        SalaryLabel1.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
+        SalaryLabel1.setForeground(new java.awt.Color(255, 255, 255));
         SalaryLabel1.setText("SALARY");
         SalaryLabel1.setToolTipText("");
         SalaryLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -256,26 +265,24 @@ public class HRHomePanel extends javax.swing.JPanel {
         SalaryPanel1Layout.setHorizontalGroup(
             SalaryPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SalaryPanel1Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addContainerGap()
                 .addComponent(SalaryLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         SalaryPanel1Layout.setVerticalGroup(
             SalaryPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SalaryPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(SalaryLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(SalaryLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        HomePanel.setBackground(new java.awt.Color(88, 193, 241));
+        HomePanel.setBackground(new java.awt.Color(235, 190, 42));
         HomePanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 HomePanelHomeTravellinglMouseClicked(evt);
             }
         });
 
-        HomeLabel2.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        HomeLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        HomeLabel2.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
         HomeLabel2.setForeground(new java.awt.Color(255, 255, 255));
         HomeLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         HomeLabel2.setText("HOME");
@@ -290,37 +297,50 @@ public class HRHomePanel extends javax.swing.JPanel {
         HomePanel.setLayout(HomePanelLayout);
         HomePanelLayout.setHorizontalGroup(
             HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomePanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(HomePanelLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(HomeLabel2)
-                .addGap(55, 55, 55))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         HomePanelLayout.setVerticalGroup(
             HomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HomePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(HomeLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE))
+                .addComponent(HomeLabel2)
+                .addGap(0, 2, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ServicePanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(employeePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(SalaryPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(HomePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(employeePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel3Layout.createSequentialGroup()
+                                    .addGap(35, 35, 35)
+                                    .addComponent(SalaryPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel3Layout.createSequentialGroup()
+                                    .addGap(45, 45, 45)
+                                    .addComponent(HomePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGap(24, 24, 24)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(ServicePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(99, 99, 99)
+                .addGap(114, 114, 114)
                 .addComponent(employeePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(27, 27, 27)
                 .addComponent(ServicePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(29, 29, 29)
                 .addComponent(SalaryPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(148, 148, 148)
+                .addGap(160, 160, 160)
                 .addComponent(HomePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -397,7 +417,7 @@ public class HRHomePanel extends javax.swing.JPanel {
             }
         });
 
-        add_bt.setBackground(new java.awt.Color(0, 121, 216));
+        add_bt.setBackground(new java.awt.Color(101, 101, 101));
         add_bt.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         add_bt.setText("Add");
         add_bt.setEnabled(false);
@@ -407,7 +427,7 @@ public class HRHomePanel extends javax.swing.JPanel {
             }
         });
 
-        update_bt.setBackground(new java.awt.Color(0, 121, 216));
+        update_bt.setBackground(new java.awt.Color(152, 152, 152));
         update_bt.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         update_bt.setText("Update");
         update_bt.setEnabled(false);
@@ -417,7 +437,7 @@ public class HRHomePanel extends javax.swing.JPanel {
             }
         });
 
-        delete_bt.setBackground(new java.awt.Color(0, 121, 216));
+        delete_bt.setBackground(new java.awt.Color(213, 76, 76));
         delete_bt.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         delete_bt.setText("Delete");
         delete_bt.setEnabled(false);
@@ -578,6 +598,14 @@ public class HRHomePanel extends javax.swing.JPanel {
         lb_password.setForeground(new java.awt.Color(255, 0, 0));
         lb_password.setText("  ");
 
+        EmployeeReport.setBackground(new java.awt.Color(145, 53, 53));
+        EmployeeReport.setText("Generate Employee Report");
+        EmployeeReport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EmployeeReportActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout home_panelLayout = new javax.swing.GroupLayout(home_panel);
         home_panel.setLayout(home_panelLayout);
         home_panelLayout.setHorizontalGroup(
@@ -663,6 +691,10 @@ public class HRHomePanel extends javax.swing.JPanel {
                     .addGroup(home_panelLayout.createSequentialGroup()
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 1130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(home_panelLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(EmployeeReport, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         home_panelLayout.setVerticalGroup(
             home_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -742,7 +774,9 @@ public class HRHomePanel extends javax.swing.JPanel {
                     .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(422, 422, 422))
+                .addGap(43, 43, 43)
+                .addComponent(EmployeeReport, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(347, 347, 347))
         );
 
         jPanel2.add(home_panel, "card2");
@@ -835,7 +869,7 @@ public class HRHomePanel extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         jLabel2.setText("Available list");
 
-        set_bt.setBackground(new java.awt.Color(0, 121, 216));
+        set_bt.setBackground(new java.awt.Color(152, 152, 152));
         set_bt.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         set_bt.setText("Set");
         set_bt.addActionListener(new java.awt.event.ActionListener() {
@@ -889,6 +923,23 @@ public class HRHomePanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel27.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel27.setText("Date  :");
+
+        jLabel28.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel28.setText("Daily Service Report");
+
+        ServiceReportBT.setBackground(new java.awt.Color(145, 53, 53));
+        ServiceReportBT.setText("Genarate Report");
+        ServiceReportBT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ServiceReportBTActionPerformed(evt);
+            }
+        });
+
+        SdateL.setForeground(new java.awt.Color(255, 0, 0));
+        SdateL.setText("   ");
+
         javax.swing.GroupLayout services_panelLayout = new javax.swing.GroupLayout(services_panel);
         services_panel.setLayout(services_panelLayout);
         services_panelLayout.setHorizontalGroup(
@@ -931,9 +982,27 @@ public class HRHomePanel extends javax.swing.JPanel {
                             .addGroup(services_panelLayout.createSequentialGroup()
                                 .addGap(20, 20, 20)
                                 .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 687, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(34, 34, 34)
-                        .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGroup(services_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(services_panelLayout.createSequentialGroup()
+                                .addGap(34, 34, 34)
+                                .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, services_panelLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(services_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, services_panelLayout.createSequentialGroup()
+                                        .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(200, 200, 200))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, services_panelLayout.createSequentialGroup()
+                                        .addGroup(services_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(ServiceReportBT)
+                                            .addGroup(services_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(services_panelLayout.createSequentialGroup()
+                                                    .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(26, 26, 26)
+                                                    .addComponent(ServiceDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(SdateL, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(97, 97, 97))))))))
             .addGroup(services_panelLayout.createSequentialGroup()
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 1141, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 19, Short.MAX_VALUE))
@@ -967,12 +1036,8 @@ public class HRHomePanel extends javax.swing.JPanel {
                         .addComponent(set_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 5, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(services_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, services_panelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 218, Short.MAX_VALUE)
-                        .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(363, 363, 363))
-                    .addGroup(services_panelLayout.createSequentialGroup()
+                .addGroup(services_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, services_panelLayout.createSequentialGroup()
                         .addGroup(services_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(services_panelLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -984,7 +1049,24 @@ public class HRHomePanel extends javax.swing.JPanel {
                                     .addComponent(serviceSearchInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap())
+                    .addGroup(services_panelLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(62, 62, 62)
+                        .addGroup(services_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(ServiceDateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(SdateL)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                        .addGroup(services_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(services_panelLayout.createSequentialGroup()
+                                .addComponent(ServiceReportBT, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(363, 363, 363))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, services_panelLayout.createSequentialGroup()
+                                .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(392, 392, 392))))))
         );
 
         jPanel2.add(services_panel, "card3");
@@ -1030,7 +1112,7 @@ public class HRHomePanel extends javax.swing.JPanel {
         jLabel22.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel22.setText("Net Sarary :");
 
-        submit_bt.setBackground(new java.awt.Color(0, 121, 216));
+        submit_bt.setBackground(new java.awt.Color(101, 101, 101));
         submit_bt.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         submit_bt.setText("Submit");
         submit_bt.setEnabled(false);
@@ -1040,7 +1122,7 @@ public class HRHomePanel extends javax.swing.JPanel {
             }
         });
 
-        salaryupdate_bt.setBackground(new java.awt.Color(0, 121, 216));
+        salaryupdate_bt.setBackground(new java.awt.Color(152, 152, 152));
         salaryupdate_bt.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         salaryupdate_bt.setText("Update");
         salaryupdate_bt.setEnabled(false);
@@ -1050,7 +1132,7 @@ public class HRHomePanel extends javax.swing.JPanel {
             }
         });
 
-        salarydelete_bt.setBackground(new java.awt.Color(0, 121, 216));
+        salarydelete_bt.setBackground(new java.awt.Color(213, 76, 76));
         salarydelete_bt.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         salarydelete_bt.setText("Delete");
         salarydelete_bt.addActionListener(new java.awt.event.ActionListener() {
@@ -1062,9 +1144,9 @@ public class HRHomePanel extends javax.swing.JPanel {
         jLabel23.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel23.setText("Month");
 
-        calculate_bt.setBackground(new java.awt.Color(204, 204, 204));
+        calculate_bt.setBackground(new java.awt.Color(255, 255, 255));
         calculate_bt.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        calculate_bt.setForeground(new java.awt.Color(0, 121, 216));
+        calculate_bt.setForeground(new java.awt.Color(97, 97, 97));
         calculate_bt.setText("Calculate");
         calculate_bt.setEnabled(false);
         calculate_bt.addActionListener(new java.awt.event.ActionListener() {
@@ -1105,8 +1187,8 @@ public class HRHomePanel extends javax.swing.JPanel {
         jLabel24.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel24.setText("Year");
 
-        net_salary.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        net_salary.setForeground(new java.awt.Color(0, 121, 216));
+        net_salary.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        net_salary.setForeground(new java.awt.Color(51, 51, 51));
 
         eid_combobox.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         eid_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -1123,76 +1205,86 @@ public class HRHomePanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel29.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        jLabel29.setText("Monthly Report");
+
+        reportMonth.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        reportYear.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        salaryReport.setBackground(new java.awt.Color(145, 53, 53));
+        salaryReport.setText("Generate");
+        salaryReport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salaryReportActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout salary_panelLayout = new javax.swing.GroupLayout(salary_panel);
         salary_panel.setLayout(salary_panelLayout);
         salary_panelLayout.setHorizontalGroup(
             salary_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(salary_panelLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
                 .addGroup(salary_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(salary_panelLayout.createSequentialGroup()
-                        .addComponent(jLabel24)
-                        .addGap(384, 384, 384)
-                        .addComponent(basicsalary_input, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(salary_panelLayout.createSequentialGroup()
-                        .addGroup(salary_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel18)
-                            .addComponent(jLabel19))
-                        .addGap(41, 41, 41)
-                        .addGroup(salary_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(eid_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(othours_input, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(YearChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(46, 46, 46)
-                        .addGroup(salary_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel23)
-                            .addComponent(jLabel20)
-                            .addComponent(jLabel21))
-                        .addGap(52, 52, 52)
+                        .addGap(20, 20, 20)
                         .addGroup(salary_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(salary_panelLayout.createSequentialGroup()
-                                .addComponent(otrate_input, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(409, 409, 409)
+                                .addComponent(basicsalary_input, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(salary_panelLayout.createSequentialGroup()
                                 .addGroup(salary_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(salary_panelLayout.createSequentialGroup()
-                                        .addGap(135, 135, 135)
-                                        .addComponent(jLabel22)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(net_salary, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(salary_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel18)
+                                            .addComponent(jLabel19)
+                                            .addComponent(jLabel24))
+                                        .addGap(41, 41, 41)
+                                        .addGroup(salary_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(eid_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(othours_input, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(YearChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(salary_panelLayout.createSequentialGroup()
-                                        .addGap(163, 163, 163)
-                                        .addComponent(calculate_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addComponent(MonthChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(salary_panelLayout.createSequentialGroup()
-                .addGroup(salary_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGap(46, 46, 46)
+                                        .addComponent(calculate_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(46, 46, 46)
+                                .addGroup(salary_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel23)
+                                    .addComponent(jLabel20)
+                                    .addComponent(jLabel21)
+                                    .addComponent(jLabel22))
+                                .addGap(48, 48, 48)
+                                .addGroup(salary_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(net_salary, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(otrate_input, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(MonthChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(149, 149, 149)
+                        .addGroup(salary_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(salarydelete_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(salary_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(salaryupdate_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(submit_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jLabel26)
                     .addComponent(jLabel17)
+                    .addComponent(jLabel29)
                     .addGroup(salary_panelLayout.createSequentialGroup()
-                        .addGap(91, 91, 91)
-                        .addGroup(salary_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(submit_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(salary_panelLayout.createSequentialGroup()
-                                .addGap(214, 214, 214)
-                                .addComponent(salaryupdate_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(63, 63, 63)
-                                .addComponent(salarydelete_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(37, 37, 37)
+                        .addComponent(reportYear, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(reportMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(62, 62, 62)
+                        .addComponent(salaryReport, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(salary_panelLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(salary_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(salary_panelLayout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(salarySearchInput, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(salarySearchBT, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(salary_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(salary_panelLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 1126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(salary_panelLayout.createSequentialGroup()
-                            .addGap(32, 32, 32)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1108, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(20, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 1126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         salary_panelLayout.setVerticalGroup(
             salary_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1201,45 +1293,55 @@ public class HRHomePanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(salary_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(salary_panelLayout.createSequentialGroup()
-                        .addGroup(salary_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel18)
-                            .addComponent(eid_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel21)
-                            .addComponent(basicsalary_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(salary_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(othours_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel20)
-                            .addComponent(otrate_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(salary_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel24)
-                            .addComponent(YearChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(MonthChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(salary_panelLayout.createSequentialGroup()
                         .addGroup(salary_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel22)
-                            .addComponent(net_salary, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(calculate_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(23, 23, 23)
-                .addGroup(salary_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(submit_bt)
-                    .addComponent(salaryupdate_bt)
-                    .addComponent(salarydelete_bt))
-                .addGap(75, 75, 75)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(salary_panelLayout.createSequentialGroup()
+                                .addGroup(salary_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel18)
+                                    .addComponent(eid_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel21)
+                                    .addComponent(basicsalary_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(salary_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(othours_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel20)
+                                    .addComponent(otrate_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(salary_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(MonthChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel24)
+                                    .addComponent(YearChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(net_salary, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(3, 3, 3))
+                            .addGroup(salary_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel22)
+                                .addComponent(calculate_bt)))
+                        .addGap(18, 18, 18)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel26))
+                    .addGroup(salary_panelLayout.createSequentialGroup()
+                        .addComponent(submit_bt)
+                        .addGap(27, 27, 27)
+                        .addComponent(salaryupdate_bt)
+                        .addGap(31, 31, 31)
+                        .addComponent(salarydelete_bt)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel26)
-                .addGap(11, 11, 11)
                 .addGroup(salary_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(salarySearchInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(salarySearchBT))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(342, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel29)
+                .addGap(41, 41, 41)
+                .addGroup(salary_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(reportMonth, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(salaryReport, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                    .addComponent(reportYear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(300, Short.MAX_VALUE))
         );
 
         jPanel2.add(salary_panel, "card4");
@@ -1273,19 +1375,19 @@ public class HRHomePanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
      public void setpanelcolor(JPanel Pane){   
-        Pane.setBackground(new Color(4,87,152));    
+        Pane.setBackground(new Color(235,190,42));    
     }
     
     public void resetpanelcolor(JPanel Pane){    
-        Pane.setBackground(new Color(88,193,241));    
+        Pane.setBackground(new Color(0,0,0));    
     }
     
      public void setLabelcolor(JLabel Pane){   
-        Pane.setForeground(new Color(224,224,224));
+        Pane.setForeground(new Color(0,0,0));
     }
     
     public void resetLabelcolor(JLabel Pane){    
-        Pane.setForeground(new Color(0,0,0));    
+        Pane.setForeground(new Color(255,255,255));    
     }
     
     private void employeeLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_employeeLabelMouseClicked
@@ -1902,16 +2004,61 @@ public class HRHomePanel extends javax.swing.JPanel {
         tr.setRowFilter(RowFilter.regexFilter(search));
     }//GEN-LAST:event_salarySearchBTActionPerformed
 
+    private void EmployeeReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeReportActionPerformed
+        try {
+                //Calling the method
+                DBHelper.EmployeeDetailReport();
+            } catch (JRException | java.lang.NumberFormatException e) {
+                e.printStackTrace();
+            }
+    }//GEN-LAST:event_EmployeeReportActionPerformed
+
+    private void ServiceReportBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ServiceReportBTActionPerformed
+      // if(ServiceDateChooser.getDate())
+      String date = ServiceDateChooser.getDate().toString();
+      if(!date.equals(null)){
+        SdateL.setText("");  
+        Date sdate = ServiceDateChooser.getDate();
+        java.sql.Date SDATE = new java.sql.Date(sdate.getTime());
+        String sDate = SDATE.toString();
+        
+        try{
+                DBHelper.dailyServiceReport(sDate);
+            } catch (java.lang.NumberFormatException | JRException e){
+                e.printStackTrace();
+            }
+      }else{
+       SdateL.setText("Pleace select a Date first");
+      }
+    }//GEN-LAST:event_ServiceReportBTActionPerformed
+
+    private void salaryReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salaryReportActionPerformed
+        String year = Integer.toString(reportYear.getYear());
+        int Month = reportMonth.getMonth() + 1;
+        String month =Integer.toString(Month);
+        
+        try{
+                DBHelper.SalaryReport(year,month);
+            } catch (java.lang.NumberFormatException | JRException e){
+                e.printStackTrace();
+            }
+        
+    }//GEN-LAST:event_salaryReportActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser Dob_input;
+    private javax.swing.JButton EmployeeReport;
     private javax.swing.JLabel HomeLabel2;
     private javax.swing.JPanel HomePanel;
     private com.toedter.calendar.JMonthChooser MonthChooser;
     private javax.swing.JLabel SalaryLabel1;
     private javax.swing.JPanel SalaryPanel1;
+    private javax.swing.JLabel SdateL;
+    private com.toedter.calendar.JDateChooser ServiceDateChooser;
     private javax.swing.JLabel ServiceLabel;
     private javax.swing.JPanel ServicePanel;
+    private javax.swing.JButton ServiceReportBT;
     private com.toedter.calendar.JYearChooser YearChooser;
     private javax.swing.JButton add_bt;
     private javax.swing.JTextField address_input;
@@ -1952,6 +2099,9 @@ public class HRHomePanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1984,7 +2134,10 @@ public class HRHomePanel extends javax.swing.JPanel {
     private javax.swing.JTextField otrate_input;
     private javax.swing.JTextField password_input;
     private javax.swing.JTextField phone_input;
+    private com.toedter.calendar.JMonthChooser reportMonth;
+    private com.toedter.calendar.JYearChooser reportYear;
     private javax.swing.JButton reset_bt;
+    private javax.swing.JButton salaryReport;
     private javax.swing.JButton salarySearchBT;
     private javax.swing.JTextField salarySearchInput;
     private javax.swing.JPanel salary_panel;

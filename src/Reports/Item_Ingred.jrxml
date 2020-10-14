@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.13.0.final using JasperReports Library version 6.13.0-46ada4d1be8f3c5985fd0b6146f3ed44caed6f05  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Item_Ingred" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8d7a84c7-977f-4d93-ac3a-11ea398df7e9">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="itpfinaldb"/>
+	<subDataset name="TableDataset" uuid="9747e0d1-2eb0-47a0-b620-00fe84ee9d2c">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Kitchen Database"/>
+		<parameter name="OrderId" class="java.lang.Integer"/>
+		<queryString language="SQL">
+			<![CDATA[SELECT i.ingred_name, (ii.amount*o.quantity)
+FROM itpfinaldb.order_item_table ot, itpfinaldb.order_table o, itpfinaldb.item_ingre_table ii, itpfinaldb.ingred_table i
+WHERE (ot.order_id = o.order_id) AND (ot.item_id = ii.item_id) AND (ii.ingred_id = i.ingred_id) AND ot.order_id = $P{OrderId} ]]>
+		</queryString>
+		<field name="ingred_name" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="ingred_name"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="ingred_table"/>
+		</field>
+		<field name="(ii.amount*o.quantity)" class="java.lang.Double">
+			<property name="com.jaspersoft.studio.field.label" value="(ii.amount*o.quantity)"/>
+		</field>
+	</subDataset>
+	<parameter name="OrderId" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[SELECT order_id,
+	'menu name',
+	employee_name,
+	date
+FROM order_table
+WHERE 
+	 order_id =  $P{OrderId}]]>
+	</queryString>
+	<field name="order_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="order_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="order_table"/>
+	</field>
+	<field name="menu name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="menu name"/>
+	</field>
+	<field name="employee_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="employee_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="order_table"/>
+	</field>
+	<field name="date" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="order_table"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement positionType="FixRelativeToBottom" x="30" y="20" width="470" height="40" uuid="31cd9142-4b45-4c66-b439-e25c154f1407"/>
+				<textElement textAlignment="Center">
+					<font fontName="SF Pro Display" size="16"/>
+				</textElement>
+				<text><![CDATA[Kitchen Management]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="49" width="470" height="30" forecolor="#F73531" uuid="9db5fa5e-00d0-407b-914d-34f73cf29533"/>
+				<textElement textAlignment="Center">
+					<font fontName="SF Pro Display" size="9"/>
+				</textElement>
+				<text><![CDATA[User Order Summary]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="170" splitType="Stretch">
+			<rectangle>
+				<reportElement x="30" y="5" width="450" height="135" backcolor="#D1D1D1" uuid="13ab7452-6540-411d-887b-14b63b7ff553"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="40" y="15" width="80" height="20" uuid="18e43928-7b49-4f81-a72a-5fcb48e6277d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4deaeede-78a8-41fa-90b6-69accbc4122f"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SF Pro Text" size="8"/>
+				</textElement>
+				<text><![CDATA[Order ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="45" width="80" height="20" uuid="77e5b131-0292-4416-a124-b07d2a5812f2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4deaeede-78a8-41fa-90b6-69accbc4122f"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SF Pro Text" size="8"/>
+				</textElement>
+				<text><![CDATA[Menu ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="75" width="80" height="20" uuid="46b379ea-d3de-4a62-87cf-2b0c893252af">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4deaeede-78a8-41fa-90b6-69accbc4122f"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SF Pro Text" size="8"/>
+				</textElement>
+				<text><![CDATA[Employee]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="105" width="80" height="20" uuid="c907bfaf-b401-4eee-88f7-a647ac057579">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4deaeede-78a8-41fa-90b6-69accbc4122f"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SF Pro Text" size="8"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="360" y="10" width="100" height="25" uuid="c312c018-b3b7-44dc-a43d-d9efea8d5c7c"/>
+				<textFieldExpression><![CDATA[$F{order_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="360" y="45" width="100" height="20" uuid="52e22f72-93be-44a2-b4db-01e042b9d658"/>
+				<textFieldExpression><![CDATA[$F{menu name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="360" y="75" width="100" height="20" uuid="20fcf7a1-d2f8-49a3-b1bd-0d39bc61cd44"/>
+				<textFieldExpression><![CDATA[$F{employee_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="360" y="105" width="100" height="20" uuid="4359a143-8266-493c-bd5d-8755426e93b1"/>
+				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="251" splitType="Stretch">
+			<componentElement>
+				<reportElement x="30" y="0" width="450" height="200" uuid="3607e968-efe5-426a-b626-ffa565fc7d8b">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="TableDataset" uuid="304f2e66-0fa6-4a88-b37c-ea384f602286">
+						<datasetParameter name="OrderId">
+							<datasetParameterExpression><![CDATA[$F{order_id}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="220" uuid="f704b1de-ab5c-4880-a6f5-5b2c95f8e297">
+						<jr:tableHeader height="30"/>
+						<jr:tableFooter height="30"/>
+						<jr:columnHeader height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="220" height="30" uuid="2d3d30fa-904a-4416-bf4c-1dae29e5c6e3"/>
+								<textElement>
+									<font fontName="SF Pro Display" size="8"/>
+								</textElement>
+								<text><![CDATA[Ingredient name]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter height="30"/>
+						<jr:detailCell height="30">
+							<textField>
+								<reportElement x="0" y="0" width="220" height="30" uuid="64c132ce-60f9-40fb-a0b7-1fbb00d4af70"/>
+								<textFieldExpression><![CDATA[$F{ingred_name}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="220" uuid="4385c6a8-c0b1-423c-9384-1e55ce54f43b">
+						<jr:tableHeader height="30"/>
+						<jr:tableFooter height="30"/>
+						<jr:columnHeader height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="220" height="30" uuid="84a0f2db-aa92-4b90-ada4-dcfa7b93d35a"/>
+								<textElement>
+									<font fontName="SF Pro Display" size="8"/>
+								</textElement>
+								<text><![CDATA[Calculated amount]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter height="30"/>
+						<jr:detailCell height="30">
+							<textField>
+								<reportElement x="0" y="0" width="220" height="30" uuid="5760d6b1-b830-4092-8fa0-032284ccf8d7"/>
+								<textFieldExpression><![CDATA[$F{(ii.amount*o.quantity)}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

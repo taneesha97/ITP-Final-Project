@@ -254,7 +254,7 @@
                                           </Group>
                                       </Group>
                                   </Group>
-                                  <EmptySpace pref="32" max="32767" attributes="0"/>
+                                  <EmptySpace pref="29" max="32767" attributes="0"/>
                                   <Component id="jScrollPane2" min="-2" pref="755" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="296" max="-2" attributes="0"/>
                               </Group>
@@ -375,7 +375,7 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
+                                              <Group type="102" attributes="0">
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Group type="102" alignment="0" attributes="0">
                                                           <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
@@ -418,16 +418,16 @@
                                                           <Component id="BDiscount" min="-2" max="-2" attributes="0"/>
                                                       </Group>
                                                   </Group>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <Component id="jLabel32" min="-2" max="-2" attributes="0"/>
                                               </Group>
-                                              <Group type="102" attributes="0">
-                                                  <Component id="NoOfDays" min="-2" pref="23" max="-2" attributes="0"/>
-                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="NoOfDays" min="-2" pref="26" max="-2" attributes="0"/>
+                                                  <EmptySpace max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="jLabel32" min="-2" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" attributes="0">
                                                   <EmptySpace max="-2" attributes="0"/>
@@ -839,7 +839,7 @@
                                           <Component id="CashButton1" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace pref="139" max="32767" attributes="0"/>
+                                  <EmptySpace pref="136" max="32767" attributes="0"/>
                                   <Component id="jSeparator8" min="-2" pref="12" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -1487,29 +1487,36 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jLabel13" max="32767" attributes="0"/>
-                                      <Component id="jLabel14" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="supplierName" alignment="0" min="-2" pref="193" max="-2" attributes="0"/>
-                                      <Component id="SupplierTotalAmount" min="-2" pref="138" max="-2" attributes="0"/>
-                                      <Component id="supplierEmail" alignment="0" min="-2" pref="256" max="-2" attributes="0"/>
-                                      <Component id="SupplierAddress" alignment="0" max="32767" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="jLabel13" max="32767" attributes="0"/>
+                                              <Component id="jLabel14" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="supplierName" min="-2" pref="193" max="-2" attributes="0"/>
+                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                              </Group>
+                                              <Component id="supplierEmail" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="SupplierAddress" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="STotalAmount" alignment="0" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Component id="jLabel6" alignment="0" max="32767" attributes="0"/>
                                   </Group>
+                                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
                                   <Component id="supplierTransactionButton" min="-2" pref="119" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
-                              <Component id="jLabel6" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                           <Component id="jSeparator4" min="-2" pref="9" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
@@ -1533,6 +1540,10 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jScrollPane3" min="-2" pref="1094" max="-2" attributes="0"/>
                               </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="460" max="-2" attributes="0"/>
+                                  <Component id="SupplierID" min="-2" pref="36" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
@@ -1550,7 +1561,9 @@
                           </Group>
                           <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                           <Component id="jScrollPane3" min="-2" pref="179" max="-2" attributes="0"/>
-                          <EmptySpace pref="41" max="32767" attributes="0"/>
+                          <EmptySpace pref="12" max="32767" attributes="0"/>
+                          <Component id="SupplierID" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
@@ -1561,7 +1574,7 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="jSeparator4" min="-2" pref="227" max="-2" attributes="0"/>
                                       <Group type="102" attributes="0">
                                           <Component id="jLabel6" min="-2" pref="27" max="-2" attributes="0"/>
@@ -1582,11 +1595,11 @@
                                           </Group>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="SupplierTotalAmount" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
+                                              <Component id="STotalAmount" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
                                               <Component id="jLabel16" min="-2" pref="25" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                                          <Component id="supplierTransactionButton" min="-2" pref="36" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="supplierTransactionButton" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -1695,7 +1708,7 @@
                     <Property name="text" type="java.lang.String" value="Amount"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="SupplierTotalAmount">
+                <Component class="javax.swing.JLabel" name="STotalAmount">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Nirmala UI" size="16" style="0"/>
@@ -1791,6 +1804,7 @@
                     <Property name="text" type="java.lang.String" value="Add"/>
                   </Properties>
                   <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="supplierTransactionButtonMouseClicked"/>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="supplierTransactionButtonActionPerformed"/>
                   </Events>
                 </Component>
@@ -1800,6 +1814,11 @@
                       <Font name="Nirmala UI" size="18" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Add Supplier Details Into Transaction Table"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="SupplierID">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -1853,7 +1872,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="0" pref="819" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="816" max="32767" attributes="0"/>
                           <Component id="Mothly_Report" min="-2" pref="188" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="405" max="-2" attributes="0"/>
                       </Group>

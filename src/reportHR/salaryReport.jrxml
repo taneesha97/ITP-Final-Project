@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.13.0.final using JasperReports Library version 6.13.0-46ada4d1be8f3c5985fd0b6146f3ed44caed6f05  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="salaryReport" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ea101614-8a1f-4c0b-af67-93b263d1ceee">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (5)"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="471"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="517"/>
+	<parameter name="year" class="java.lang.String"/>
+	<parameter name="month" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[Select * from  itpfinaldb.salary
+where `year`  =  $P{year} AND `month`  =  $P{month} ]]>
+	</queryString>
+	<field name="eid" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="eid"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="salary"/>
+	</field>
+	<field name="basicsalary" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="basicsalary"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="salary"/>
+	</field>
+	<field name="otrate" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="otrate"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="salary"/>
+	</field>
+	<field name="othours" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="othours"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="salary"/>
+	</field>
+	<field name="year" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="year"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="salary"/>
+	</field>
+	<field name="month" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="month"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="salary"/>
+	</field>
+	<field name="netsalary" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="netsalary"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="salary"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="86" splitType="Stretch">
+			<staticText>
+				<reportElement x="279" y="0" width="300" height="40" uuid="15120166-deed-45dd-a4ce-f8af0204d8e4"/>
+				<textElement>
+					<font size="30"/>
+				</textElement>
+				<text><![CDATA[Monthly Salary Report]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="30" y="60" width="50" height="20" uuid="28cc0752-785d-40e4-b66f-73a481abae8c"/>
+				<textElement textAlignment="Center">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{year}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="60" width="40" height="20" uuid="74745c47-577b-4418-82c4-8b2a3452edde"/>
+				<textElement textAlignment="Center">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{month}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-10" y="60" width="40" height="20" uuid="201360ea-0e29-49df-bc05-9af606a2672f"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Year  :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="90" y="60" width="50" height="20" uuid="e9d5084e-d244-4933-9d91-f40ce535f3cd"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Month  :]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="40" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="10" width="842" height="30" backcolor="#333333" uuid="a10489af-1290-4b52-9dbb-17bc691e940e"/>
+				<staticText>
+					<reportElement x="20" y="0" width="100" height="30" forecolor="#FFFFFF" uuid="54fb6c80-f409-4b76-aadd-de5ceb710ab8">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="94d52db5-2c22-4484-8c32-d67c227751db"/>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font size="20"/>
+					</textElement>
+					<text><![CDATA[Eid]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="190" y="0" width="120" height="30" forecolor="#FFFFFF" uuid="bcbf7b7b-4f6c-4e0c-9033-670522bd075b">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2a3cba37-9fcb-43db-bf02-237b37b6628e"/>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font size="20"/>
+					</textElement>
+					<text><![CDATA[Basic Salary]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="380" y="0" width="100" height="30" forecolor="#FFFFFF" uuid="a741e478-f375-4be4-9ff4-7fc55cf24687">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="27743015-6119-4427-b411-6a8ac814673e"/>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font size="20"/>
+					</textElement>
+					<text><![CDATA[OT Rate]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="559" y="0" width="100" height="30" forecolor="#FFFFFF" uuid="4da71c0d-c554-4357-a6c2-977b74a0f643">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9ca7701f-2424-453a-a8ca-08e9d839ed34"/>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font size="20"/>
+					</textElement>
+					<text><![CDATA[OT Hours]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="720" y="0" width="100" height="30" forecolor="#FFFFFF" uuid="c3222849-f180-4fca-9db6-7ba6f6ad323e">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0cc1e8bd-834f-49df-bc90-460646a404f7"/>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font size="20"/>
+					</textElement>
+					<text><![CDATA[Net Salary]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="31" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="0" width="842" height="30" backcolor="#EBBE2A" uuid="9e299340-d1a6-4f37-8f94-867ec7bd73ba"/>
+				<textField>
+					<reportElement x="720" y="0" width="100" height="30" uuid="0b5216dc-0d7c-4cf1-bd6a-e134d4dbd959">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0cc1e8bd-834f-49df-bc90-460646a404f7"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{netsalary}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="560" y="0" width="100" height="30" uuid="a1500e76-3490-48ff-b9bd-496056c2f18d">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9ca7701f-2424-453a-a8ca-08e9d839ed34"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{othours}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="379" y="0" width="100" height="30" uuid="b531d333-8f13-4d4a-9091-12462c60f25a">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="27743015-6119-4427-b411-6a8ac814673e"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{otrate}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="199" y="0" width="100" height="30" uuid="befe36f3-4c8e-4dd8-bcdc-372b4f41f221">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2a3cba37-9fcb-43db-bf02-237b37b6628e"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{basicsalary}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="19" y="0" width="100" height="30" uuid="b7262007-717a-4108-96a3-f1304420bbf4">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="94d52db5-2c22-4484-8c32-d67c227751db"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{eid}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+</jasperReport>
